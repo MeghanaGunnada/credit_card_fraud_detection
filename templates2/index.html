@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+</head>
+<body>
+    <h1>Enter Transaction Details</h1>
+    <form action="/predict" method="POST">
+        {% for i in range(30) %}
+            <label for="input{{i}}">Feature {{i+1}}:</label>
+            <input type="text" name="input{{i}}" required><br>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
